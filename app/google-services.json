@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "698749515776",
+    "project_id": "vmobi-6fbe5",
+    "storage_bucket": "vmobi-6fbe5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:698749515776:android:8b7048a43f72bf47c500e5",
+        "android_client_info": {
+          "package_name": "com.example.vmobi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBv7krezk7QGPWYPwR2osTBVBwspUo0a64"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

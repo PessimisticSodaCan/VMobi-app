@@ -1,0 +1,27 @@
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+<!-- Base application theme. -->
+    <style name="Base.Theme.VMobi" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+
+    <style name="Theme.VMobi" parent="Base.Theme.VMobi" />
+
+    <style name="genderChip" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="theme">@style/Theme.Material3.DayNight.NoActionBar</item>
+        <item name="chipBackgroundColor"> @color/chip_background_color</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.MyApp.Chip.Choice</item>
+    </style>
+
+    <!-- Disabling elevation overlays because when chip's default background/surface
+         composite are combined with elevation overlays in a highly elevated dialog,
+         the resulting color becomes too light and causes contrast
+         issues. -->
+    <style name="ThemeOverlay.MyApp.Chip.Choice" parent="">
+        <item name="elevationOverlayEnabled">false</item>
+    </style>
+
+
+</resources>
