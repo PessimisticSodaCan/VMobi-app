@@ -8,7 +8,7 @@
     <uses-feature
         android:name="android.hardware.telephony"
         android:required="false" />
-    
+
     <!-- Permissions required by the app -->
     <!-- Allows the app to access the internet. -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -18,21 +18,27 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:allowBackup="true" <!-- Allows backup of app data. -->
-        android:dataExtractionRules="@xml/data_extraction_rules" <!-- Specifies data extraction rules for backup. -->
-        android:fullBackupContent="@xml/backup_rules" <!-- Defines what data should be backed up. -->
-        android:icon="@mipmap/ic_launcher" <!-- App icon. -->
-        android:label="@string/app_name" <!-- App name label. -->
-        android:roundIcon="@mipmap/ic_launcher_round" <!-- Round icon for devices that support round icons. -->
-        android:supportsRtl="true" <!-- Supports right-to-left layouts. -->
-        android:theme="@style/Theme.VMobi" <!-- Default theme for the app. -->
-        tools:targetApi="31"> <!-- Target API level for the tools. -->
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.VMobi"
+        tools:targetApi="31">
 
         <!-- Activity declarations -->
         <!-- Sign up activity, not exported to other apps. -->
         <activity
             android:name=".sign_up"
-            android:exported="false">
+            android:exported="true">
+            <intent-filter>
+                <!-- Main action to start the app. -->
+                <action android:name="android.intent.action.MAIN" />
+                <!-- Category to indicate this activity can be launched from the launcher. -->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <!-- Login activity, not exported to other apps. -->
@@ -49,14 +55,8 @@
         <!-- Main activity, exported and can be launched by other apps. -->
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="false">
             <!-- Intent filter to mark this activity as the main entry point. -->
-            <intent-filter>
-                <!-- Main action to start the app. -->
-                <action android:name="android.intent.action.MAIN" />
-                <!-- Category to indicate this activity can be launched from the launcher. -->
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 </manifest>
