@@ -19,6 +19,8 @@
 
     <application
         android:allowBackup="true"
+        android:usesCleartextTraffic="true"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -27,6 +29,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.VMobi"
         tools:targetApi="31">
+
+
 
         <!-- Activity declarations -->
         <!-- Sign up activity, not exported to other apps. -->

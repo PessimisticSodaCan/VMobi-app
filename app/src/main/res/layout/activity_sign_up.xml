@@ -107,6 +107,7 @@
         app:layout_constraintVertical_bias="0"
         android:layout_marginTop="20dp"/>
 
+
     <Button
         android:id="@+id/next_sign_sign_up"
         android:layout_width="320dp"
@@ -168,6 +169,16 @@
         app:layout_constraintBottom_toBottomOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="test"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_google" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

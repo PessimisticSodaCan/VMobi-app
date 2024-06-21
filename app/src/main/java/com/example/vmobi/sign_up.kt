@@ -6,7 +6,6 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.vmobi.databinding.ActivitySignUpBinding
-import com.example.vmobi.login
 import com.google.firebase.auth.FirebaseAuth
 
 class sign_up : AppCompatActivity() {
@@ -22,6 +21,11 @@ class sign_up : AppCompatActivity() {
 
         binding.signInButton.setOnClickListener {
             val intent = Intent(this, login::class.java)
+            startActivity(intent)
+            Log.d("register_username", "Sign in button clicked")
+        }
+        binding.test.setOnClickListener {
+            val intent = Intent(this, identity_setup::class.java)
             startActivity(intent)
             Log.d("register_username", "Sign in button clicked")
         }
