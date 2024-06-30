@@ -62,5 +62,10 @@
             android:exported="false">
             <!-- Intent filter to mark this activity as the main entry point. -->
         </activity>
+        <activity
+            android:name=".emergency_contact"
+            android:exported="false">
+            <!-- Intent filter to mark this activity as the main entry point. -->
+        </activity>
     </application>
 </manifest>

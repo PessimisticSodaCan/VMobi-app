@@ -1,18 +1,23 @@
 package com.example.vmobi
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
-import android.view.View
+import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 
 val phoneNumbers = arrayOf("123-456-7890", "987-654-3210", "555-123-4567", "444-555-6666")
+//later this will be changed to get numbers from mySql server
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var button: Button
+    private val requestCallPermission = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,9 +25,13 @@ class MainActivity : AppCompatActivity() {
 
         button = findViewById(R.id.next_sign_sign_up)
 
-        button.setOnClickListener(View.OnClickListener {
-            makeCall()
-        })
+        button.setOnClickListener {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CALL_PHONE), requestCallPermission)
+            } else {
+                makeCall()
+            }
+        }
     }
 
     private fun makeCall() {
@@ -46,6 +55,17 @@ class MainActivity : AppCompatActivity() {
         } catch (e: Exception) {
             e.printStackTrace()
             false // The call failed if an exception was thrown
+        }
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == requestCallPermission) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                makeCall()
+            } else {
+                Toast.makeText(this, "Permission denied to make calls", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }
